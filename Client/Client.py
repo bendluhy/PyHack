@@ -38,6 +38,7 @@ canJump = user.groundCheck()
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
+            GameServer.disconnect()
             pygame.quit()
             sys.exit()
         if event.type == pygame.KEYDOWN:
@@ -49,6 +50,7 @@ while True:
                     user.y -= user.jumpspeed
                     doubleJumpReady = False
             if event.key == pygame.K_q:
+                GameServer.disconnect()
                 pygame.quit()
                 sys.exit()
     if user.groundCheck():
